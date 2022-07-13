@@ -3,30 +3,66 @@ import StoneCard from "@/components/StoneCard.vue";
 export default {
     data() {
         return {
-            cards: [],
+            cards: [
+                { id: 1, description: "Камень1", img: "../assets/stone-example.jpg" },
+                {
+                    id: 2,
+                    description: "Очень длинный камень - Камень2",
+                    img: "@/assets/billy.jpg",
+                },
+                {
+                    id: 3,
+                    description: "Камень поменьше",
+                    img: "@/assets/falling.jpg",
+                },
+                {
+                    id: 4,
+                    description: "Камень4 - ПОТЯЖЕЛЕЕ",
+                    img: "@/assets/franz.jpg",
+                },
+                {
+                    id: 5,
+                    description: "Камень5 - обычный такой - пацанский камень",
+                    img: "@/assets/isaac.png",
+                },
+                {
+                    id: 6,
+                    description: "Камень6 - мокрый камень",
+                    img: "@/assets/Ray.jpg",
+                },
+                {
+                    id: 7,
+                    description: "Камень7",
+                    img: "@/assets/stone-header.jpg",
+                },
+            ],
         };
     },
-    mounted() {
-        this.axios.get('http://localhost:5001/api/stone')
-            .then(response => this.cards = response.data.rows)
-            .catch(error => console.log(error)); 
-    },
+    // mounted() {
+    //     this.axios.get('http://localhost:5001/api/stone')
+    //         .then(response => this.cards = response.data.rows)
+    //         .catch(error => console.log(error)); 
+    // },
     components: { StoneCard },
 };
 </script>
 
 <template>
-  <main>
-    <div class="search">
-      <form class="search__form">
-        <input type="text" placeholder="Искать здесь..." />
-        <button class="search_button" type="submit"></button>
-      </form>
-    </div>
-    <div class="Grid">
-      <StoneCard v-for="card in cards" :card="card" :key="card.id" />
-    </div>
-  </main>
+    <main>
+        <div class="search">
+            <form class="search__form">
+                <input type="text" placeholder="Искать здесь..." />
+                <button class="search_button" type="submit"></button>
+            </form>
+        </div>
+        <div class="Grid">
+            <StoneCard 
+                v-for="card in cards" 
+                :card="card" 
+                :key="card.id" 
+            />
+        </div>
+    </main>
 </template>
 
 <style lang="scss">

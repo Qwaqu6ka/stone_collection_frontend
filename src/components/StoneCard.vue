@@ -2,7 +2,7 @@
     <div class="card" @click="pushToId">
         <img
             class="card-img-top"
-            :src="'http://localhost:5001/' + card.img"
+            src="../assets/isaac.png"
             alt="Card image cap"
         />
         <div class="card-body">
