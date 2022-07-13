@@ -2,16 +2,8 @@
     <div class="stoneInfo">
         <div class="stoneInfo__image">
             <div id="carouselControls" class="carousel" data-interval="false">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img class="d-block stoneInfo__pic" src="../assets/stone-example.jpg" alt="Первый слайд">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block stoneInfo__pic" src="../assets/stone-2.jpg" alt="Второй слайд">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block stoneInfo__pic" src="../assets/stone-3.jpg" alt="Третий слайд">
-                    </div>
+                <div class="carousel-item active">
+                    <img class="d-block stoneInfo__pic" :src="'http://localhost:5001/' + stone.img" alt="Камень">
                 </div>
                 <a class="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -89,7 +81,7 @@ export default {
     },
     mounted() {
         const route = useRoute()
-        this.axios.get("http://localhost:5001/stone/" + route.params.id)
+        this.axios.get("http://localhost:5001/api/stone/" + route.params.id)
             .then(response => this.stone = response.data)
             .catch(error => console.log(error));
     }

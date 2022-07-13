@@ -47,7 +47,7 @@ export default {
     },
     methods: {
         pushToId(){
-            this.router.push("/rock/"+this.card.id)
+            this.router.push("/stone/"+this.card.id)
         }
     }
 };

@@ -1,7 +1,9 @@
 <template>
-    <header class="Header">
-        <h1 class="Header__title">Каталог минералов</h1>
-    </header>
+    <RouterLink to="/">
+        <header class="Header">
+            <h1 class="Header__title">Каталог минералов</h1>
+        </header>
+    </RouterLink>
 </template>
 
 <style lang="scss">
