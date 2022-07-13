@@ -8,7 +8,8 @@ import MainFooter from "@/components/MainFooter.vue";
     <MainHeader />
     <RouterLink to="/addStone">Добавить камень(временная кнопка)</RouterLink>
     <RouterLink to="/register">Регистрация</RouterLink>
-    <RouterLink to="login">Логин</RouterLink>
+    <RouterLink to="/login">Логин</RouterLink>
+    <RouterLink to="/admin">Админка</RouterLink>
     <RouterView />
     <MainFooter />
 </template>

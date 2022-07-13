@@ -2,7 +2,7 @@
     <div class="card" @click="pushToId">
         <img
             class="card-img-top"
-            src="../assets/stone-example.jpg"
+            :src="'http://localhost:5001/' + card.img"
             alt="Card image cap"
         />
         <div class="card-body">
