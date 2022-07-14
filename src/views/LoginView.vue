@@ -1,12 +1,12 @@
 <template>
-<div class="main" style="background-color: rgba(0, 0, 0, 0.05)">
+<div class="main content" style="background-color: rgba(0, 0, 0, 0.05)">
     <div class="container">
-        <div class="row registration">
+        <div class="row">
             <div class="col-md-offset-3 col-md-6">
                 <form class="form-horizontal" @submit.prevent="register">
                     <span class="heading">Логин</span>
                     <div class="form-group">
-                        <input type="email" class="form-control" id="inputLogin" placeholder="Логин" v-model="login">
+                        <input type="" class="form-control" id="inputLogin" placeholder="Логин" v-model="login">
                         <i class="fa fa-user"></i>
                     </div>
                     <div class="form-group help">
@@ -14,13 +14,8 @@
                         <i class="fa fa-lock"></i>
                         <a href="#" class="fa fa-question-circle"></a>
                     </div>
-                    <div class="form-group">
-                        <div class="main-checkbox">
-                            <input type="checkbox" value="none" id="checkbox1" name="check"/>
-                            <label for="checkbox1"></label>
-                        </div>
-                        <span class="text">Запомнить</span>
-                        <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+                    <div class="form-group d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary">Войти</button>
                     </div>
                 </form>
             </div>
@@ -30,11 +25,20 @@
 </template>
 
 <style>
-.content {
+.main {
     min-height: calc(100vh - 0px);
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: center;
     background-color: rgba(0, 0, 0, 0.05);;
+}
+
+.row {
+  margin-top: 15%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
 }
 
 .sidebar {
@@ -64,12 +68,12 @@ td {
     overflow: hidden; /* Обрезаем всё за пределами блока */
     text-overflow: ellipsis;
 }
-.registration {
-   display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100vh;
-}
+/*.registration {*/
+/*   display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: center;*/
+/*    height: 100vh;*/
+/*}*/
 
 /* Form Style */
 .form-horizontal{

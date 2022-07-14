@@ -1,5 +1,8 @@
 <script>
 import StoneCard from "@/components/StoneCard.vue";
+import { RouterLink, RouterView } from "vue-router";
+import MainHeader from "../components/MainHeader.vue";
+import MainFooter from "../components/MainFooter.vue";
 export default {
     data() {
         return {
@@ -43,11 +46,12 @@ export default {
     //         .then(response => this.cards = response.data.rows)
     //         .catch(error => console.log(error)); 
     // },
-    components: { StoneCard },
+    components: {MainHeader, MainFooter, StoneCard },
 };
 </script>
 
 <template>
+  <MainHeader />
     <main>
         <div class="search">
             <form class="search__form">
@@ -55,21 +59,39 @@ export default {
                 <button class="search_button" type="submit"></button>
             </form>
         </div>
-        <div class="Grid">
-            <StoneCard 
-                v-for="card in cards" 
-                :card="card" 
-                :key="card.id" 
-            />
+      <div class="container">
+        <div class="main__cardZone">
+          <StoneCard
+              v-for="card in cards"
+              :card="card"
+              :key="card.id"
+          />
         </div>
+      </div>
+
     </main>
+  <MainFooter />
 </template>
 
 <style lang="scss">
-.Grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  justify-items: center;
+body, html {
+  margin: 0;
+  padding: 0;
+  background-color: rgba(0, 0, 0, 0.05);
+  min-height: 100%;
+}
+
+.main {
+  min-height: 100%;
+}
+
+.main__cardZone {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  //grid-template-columns: repeat(4, 1fr);
+
 }
 .search {
   position: relative;

@@ -1,4 +1,11 @@
+<script setup>
+import MainFooter from "../components/MainFooter.vue";
+import HeaderStoneDetails from "../components/HeaderStoneDetails.vue";
+
+</script>
+
 <template>
+  <HeaderStoneDetails />
     <div class="stoneInfo">
         <div class="stoneInfo__image">
             <img 
@@ -27,9 +34,11 @@
             </div>
         </div>
     </div>
+  <MainFooter />
 </template>
 
 <style>
+
 .stoneInfo {
     display: flex;
     flex-direction: row;
@@ -61,22 +70,3 @@
     text-decoration: underline;
 }
 </style>
-
-<script>
-import { useRoute } from 'vue-router';
-
-export default {
-    data() {
-        return {
-            stone: {}
-        }
-    },
-    mounted() {
-        const route = useRoute()
-        // this.axios.get("http://localhost:5001/api/stone/" + route.params.id)
-        //     .then(response => this.stone = response.data)
-        //     .catch(error => console.log(error));
-    }
-}
-
-</script>
