@@ -55,8 +55,9 @@
         <thead>
           <tr>
             <th scope="col">Название</th>
-            <th scope="col">Местонахождения</th>
+            <th scope="col">Место нахождения</th>
             <th scope="col">Автор</th>
+            <th scope="col">Место хранения</th>
             <th scope="col">Действия</th>
             <th scope="col">Создано</th>
           </tr>

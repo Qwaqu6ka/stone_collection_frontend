@@ -20,7 +20,7 @@ import HeaderStoneDetails from "../components/HeaderStoneDetails.vue";
       </div>
       <div class="stoneInfo__location">
         <span class="title">Место нахождения:</span>
-        <p>{{ stone.stone_place }}</p>
+        <p>{{ stone.stone_city }}</p>
       </div>
       <div class="stoneInfo__author">
         <span class="title"> Автор: </span>
@@ -77,8 +77,11 @@ export default {
     const route = useRoute();
     this.axios
       .get("http://localhost:5001/api/stone/" + route.params.id)
-      .then((response) => (this.stone = response.data))
+      .then((response) => {
+        this.stone = response.data
+      })
       .catch((error) => console.log(error));
+      
   },
 };
 </script>

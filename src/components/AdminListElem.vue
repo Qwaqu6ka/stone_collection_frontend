@@ -1,8 +1,9 @@
 <template>
   <tr>
     <td class="td-description">{{ card.description }}</td>
-    <td>{{ card.stone_place }}</td>
+    <td>{{ card.stone_city }}</td>
     <td>{{ card.stone_author }}</td>
+    <td>{{ card.stone_place }}</td>
     <td class="td__buttons">
       <a href="#" @click="removeItem">Удалить</a>
     </td>
