@@ -16,6 +16,9 @@
             <a href="#" class="nav-link active" aria-current="page">
               Список минералов
             </a>
+            <a href="#" class="nav-link text-white" aria-current="page">
+              На главную
+            </a>
           </li>
         </ul>
       </div>
@@ -125,6 +128,10 @@ td {
   white-space: nowrap; /* Текст не переносится */
   overflow: hidden; /* Обрезаем всё за пределами блока */
   text-overflow: ellipsis;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
 }
 </style>
 

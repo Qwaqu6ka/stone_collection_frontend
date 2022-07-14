@@ -6,7 +6,7 @@
                 <form class="form-horizontal" @submit.prevent="onSubmit">
                     <span class="heading">Логин</span>
                     <div class="form-group">
-                        <input type="" class="form-control" id="inputLogin" placeholder="Логин" v-model="login">
+                        <input type ="" class="form-control" id="inputLogin" placeholder="Логин" v-model="login">
                         <i class="fa fa-user"></i>
                     </div>
                     <div class="form-group help">
@@ -18,32 +18,6 @@
                         <button type="submit" class="btn btn-primary">Войти</button>
                     </div>
                 </form>
-            </div>
-            <div class="form-group help">
-              <input
-                type="password"
-                class="form-control"
-                id="inputPassword"
-                placeholder="Пароль"
-                v-model="pass"
-              />
-              <i class="fa fa-lock"></i>
-              <a href="#" class="fa fa-question-circle"></a>
-            </div>
-            <div class="form-group">
-              <div class="main-checkbox">
-                <input
-                  type="checkbox"
-                  value="none"
-                  id="checkbox1"
-                  name="check"
-                />
-                <label for="checkbox1"></label>
-              </div>
-              <span class="text">Запомнить</span>
-              <button type="submit" class="btn btn-primary">
-                Зарегистрироваться
-              </button>
             </div>
         </div>
       </div>

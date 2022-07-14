@@ -11,17 +11,17 @@ export default {
                 {
                     id: 2,
                     description: "Очень длинный камень - Камень2",
-                    img: "@/assets/billy.jpg",
+                    img: "../assets/stone-example.jpg",
                 },
                 {
                     id: 3,
                     description: "Камень поменьше",
-                    img: "@/assets/falling.jpg",
+                    img: "@/assets/franz.jpg",
                 },
                 {
                     id: 4,
                     description: "Камень4 - ПОТЯЖЕЛЕЕ",
-                    img: "@/assets/franz.jpg",
+                    img: "@/assets/Ray.jpg",
                 },
                 {
                     id: 5,
@@ -53,6 +53,9 @@ export default {
 <template>
   <MainHeader />
     <main>
+      <div class="signIn d-flex justify-content-end">
+        <button class="btn btn-primary m-1">Логин</button>
+      </div>
         <div class="search">
             <form class="search__form">
                 <input type="text" placeholder="Искать здесь..." />
