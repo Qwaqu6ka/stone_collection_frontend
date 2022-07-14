@@ -1,45 +1,37 @@
 <script setup>
 import MainFooter from "../components/MainFooter.vue";
 import HeaderStoneDetails from "../components/HeaderStoneDetails.vue";
-
 </script>
 
 <template>
   <HeaderStoneDetails />
-    <div class="stoneInfo">
-        <div class="stoneInfo__image">
-            <img 
-                class="d-block stoneInfo__pic" 
-                :src="'http://localhost:5001/' + stone.img"
-                alt="Камень"
-            >
-        </div>
-        <div class="stoneInfo__info">
-            <div class="stoneInfo__description">
-                <h6 class="title">
-                    Описание:
-                </h6>
-                <p>
-                    {{ stone.description }}
-                </p>
-            </div>
-            <div class="stoneInfo__location">
-                <span class="title">Место нахождения:</span>
-                <span></span>
-            </div>
-            <div class="stoneInfo__author">
-                <span class="title" >
-                    Автор:
-                </span> Иванов Иван Иванович
-
-            </div>
-        </div>
+  <div class="stoneInfo">
+    <div class="stoneInfo__image">
+      <img
+        class="d-block stoneInfo__pic"
+        :src="'http://localhost:5001/' + stone.img"
+        alt="Камень"
+      />
     </div>
+    <div class="stoneInfo__info">
+      <div class="stoneInfo__description">
+        <h6 class="title">Описание:</h6>
+        <p>{{ stone.description }}</p>
+      </div>
+      <div class="stoneInfo__location">
+        <span class="title">Место нахождения:</span>
+        <p>{{ stone.stone_place }}</p>
+      </div>
+      <div class="stoneInfo__author">
+        <span class="title"> Автор: </span>
+        <p>{{ stone.stone_author }}</p>
+      </div>
+    </div>
+  </div>
   <MainFooter />
 </template>
 
 <style>
-
 .stoneInfo {
   display: flex;
   flex-direction: row;
@@ -83,9 +75,10 @@ export default {
   },
   mounted() {
     const route = useRoute();
-    this.axios.get("http://localhost:5001/api/stone/" + route.params.id)
-        .then(response => this.stone = response.data)
-        .catch(error => console.log(error));
+    this.axios
+      .get("http://localhost:5001/api/stone/" + route.params.id)
+      .then((response) => (this.stone = response.data))
+      .catch((error) => console.log(error));
   },
 };
 </script>

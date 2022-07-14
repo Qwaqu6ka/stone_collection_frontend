@@ -1,15 +1,23 @@
 <template>
   <header class="p-3 bg-dark text-white">
     <div class="container">
-      <div class=" d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <ul class=" nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><RouterLink class="nav-link px-2 text-white" to="/">На главную</RouterLink></li>
+      <div
+        class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
+      >
+        <ul
+          class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"
+        >
+          <li>
+            <RouterLink class="nav-link px-2 text-white" to="/"
+              >На главную</RouterLink
+            >
+          </li>
         </ul>
 
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 search__forDetails">
+        <!-- <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 search__forDetails">
           <input type="search" class="form-control form-control-dark" placeholder="Искать здесь..." aria-label="Search">
           <button class="search_button" type="submit"></button>
-        </form>
+        </form> -->
       </div>
     </div>
   </header>
@@ -17,8 +25,8 @@
 
 <script>
 export default {
-  name: "headerStoneDetails"
-}
+  name: "headerStoneDetails",
+};
 </script>
 
 <style>
@@ -42,7 +50,7 @@ header {
   width: 100%;
   height: 40px;
   padding-left: 10px;
-  border: 2px solid #7BA7AB;
+  border: 2px solid #7ba7ab;
   border-radius: 5px;
   outline: none;
   font-size: 16px;
@@ -63,6 +71,6 @@ header {
   content: "\f002";
   font-family: FontAwesome;
   font-size: 16px;
-  color: #F9F0DA;
+  color: #f9f0da;
 }
 </style>

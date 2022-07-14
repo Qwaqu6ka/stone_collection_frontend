@@ -16,9 +16,9 @@
             <a href="#" class="nav-link active" aria-current="page">
               Список минералов
             </a>
-            <a href="#" class="nav-link text-white" aria-current="page">
+            <RouterLink class="nav-link text-white" aria-current="page" to="/">
               На главную
-            </a>
+            </RouterLink>
           </li>
         </ul>
       </div>
@@ -30,12 +30,13 @@
           <div
             class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
           >
-            <form class="search">
+            <form class="search" @submit.prevent="searchIt">
               <input
                 type="search"
                 class="form-control form-control-dark"
                 placeholder="Искать здесь..."
                 aria-label="Search"
+                v-model="searchText"
               />
               <button class="search_button" type="submit"></button>
             </form>
@@ -43,53 +44,32 @@
         </div>
       </div>
 
-        <h3 class="title__table">
-            Список минералов
-        </h3>
-        <div class="button__add d-flex flex-row justify-content-end" >
-            <button class="btn btn-primary addStone" @click="addStone">
-                Добавить минерал
-            </button>
-        </div>
+      <h3 class="title__table">Список минералов</h3>
+      <div class="button__add d-flex flex-row justify-content-end">
+        <button class="btn btn-primary addStone" @click="addStone">
+          Добавить минерал
+        </button>
+      </div>
 
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th scope="col">id</th>
-                <th scope="col">Название</th>
-                <th scope="col">Описание</th>
-                <th scope="col">Местонахождения</th>
-                <th scope="col">Автор</th>
-                <th scope="col">Действия</th>
-                <th scope="col">Создано</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Камень 1</td>
-                <td class="td-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, et, libero. Accusantium architecto atque culpa esse eum exercitationem ipsam nihil quasi, tempora tenetur totam, vel?</td>
-                <td>Приморье</td>
-                <td>Иванов Иван</td>
-                <td class="td__buttons">
-                    <a href="">Удалить</a>
-                </td>
-                <td>03.04.2022</td>
-
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Камень 2</td>
-                <td class="td-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, et, libero. Accusantium architecto atque culpa esse eum exercitationem ipsam nihil quasi, tempora tenetur totam, vel?</td>
-                <td>Приморье</td>
-                <td>Иванов Иван</td>
-                <td class="td__buttons">
-                    <a href="">Удалить</a>
-                </td>
-                <td>03.04.2022</td>
-            </tr>
-            </tbody>
-        </table>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Название</th>
+            <th scope="col">Местонахождения</th>
+            <th scope="col">Автор</th>
+            <th scope="col">Действия</th>
+            <th scope="col">Создано</th>
+          </tr>
+        </thead>
+        <tbody>
+          <AdminListElem
+            v-for="card in cardsToShow"
+            :key="card.id"
+            :card="card"
+            :removeItem="removeItem"
+          />
+        </tbody>
+      </table>
     </div>
   </div>
 </template>
@@ -136,13 +116,47 @@ td {
 </style>
 
 <script>
-import router from '../router';
+import router from "../router";
+import AdminListElem from "../components/AdminListElem.vue";
 
 export default {
-    methods: {
-        addStone() {
-            router.push("/addStone");
-        }
-    }
+  methods: {
+    addStone() {
+      router.push("/addStone");
+    },
+    removeItem(id) {
+      this.card = this.cards.filter((it) => it.id !== id);
+    },
+    searchIt() {
+      if (this.searchText === "") {
+        this.cardsToShow = this.originalCards.slice();
+      } else {
+        const find = this.searchText.toLowerCase();
+        this.cardsToShow = this.originalCards.filter(
+          (it) =>
+            it.stone_author.toLowerCase().indexOf(find) !== -1 ||
+            it.stone_place.toLowerCase().indexOf(find) !== -1 ||
+            it.description.toLowerCase().indexOf(find) !== -1
+        );
+      }
+    },
+  },
+  components: { AdminListElem },
+  data() {
+    return {
+      originalCards: [],
+      cardsToShow: [],
+      searchText: "",
+    };
+  },
+  mounted() {
+    this.axios
+      .get("http://localhost:5001/api/stone")
+      .then((response) => {
+        this.originalCards = response.data.rows;
+        this.cardsToShow = this.originalCards.slice();
+      })
+      .catch((error) => console.log(error));
+  },
 };
 </script>

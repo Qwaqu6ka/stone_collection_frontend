@@ -1,32 +1,31 @@
 <template>
-    <div class="card" @click="pushToId">
-        <img
-            class="card-img-top"
-            :src="'http://localhost:5001/' + card.img"
-            alt="Card image cap"
-        />
-        <div class="card-body">
-          <h5 class="card-title">{{ card.description }}</h5>
-        </div>
-      </div>
-
+  <div class="card" @click="pushToId">
+    <img
+      class="card-img-top"
+      :src="'http://localhost:5001/' + card.img"
+      alt="Card image cap"
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{ card.description }}</h5>
+    </div>
+  </div>
 </template>
 
 <style lang="scss">
 .card {
-    margin: 10px;
-    width: 18rem;
-    height: 430px;
+  margin: 10px;
+  width: 18rem;
+  height: 430px;
   //opacity: 0.8;
 }
 
 .card:hover {
   cursor: pointer;
-  background-color:rgba(0, 0, 0, 0.05);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .card-body {
-    height: 100%;
+  height: 100%;
 }
 
 .card-img-top {

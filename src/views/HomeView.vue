@@ -4,80 +4,103 @@ import { RouterLink, RouterView } from "vue-router";
 import MainHeader from "../components/MainHeader.vue";
 import MainFooter from "../components/MainFooter.vue";
 export default {
-    data() {
-        return {
-            cards: [
-                // { id: 1, description: "Камень1", img: "../assets/stone-example.jpg" },
-                // {
-                //     id: 2,
-                //     description: "Очень длинный камень - Камень2",
-                //     img: "@/assets/billy.jpg",
-                // },
-                // {
-                //     id: 3,
-                //     description: "Камень поменьше",
-                //     img: "@/assets/falling.jpg",
-                // },
-                // {
-                //     id: 4,
-                //     description: "Камень4 - ПОТЯЖЕЛЕЕ",
-                //     img: "@/assets/franz.jpg",
-                // },
-                // {
-                //     id: 5,
-                //     description: "Камень5 - обычный такой - пацанский камень",
-                //     img: "@/assets/isaac.png",
-                // },
-                // {
-                //     id: 6,
-                //     description: "Камень6 - мокрый камень",
-                //     img: "@/assets/Ray.jpg",
-                // },
-                // {
-                //     id: 7,
-                //     description: "Камень7",
-                //     img: "@/assets/stone-header.jpg",
-                // },
-            ],
-        };
+  data() {
+    return {
+      sessionStorage: sessionStorage,
+      cardsToShow: [
+        // { id: 1, description: "Камень1", img: "../assets/stone-example.jpg" },
+        // {
+        //     id: 2,
+        //     description: "Очень длинный камень - Камень2",
+        //     img: "@/assets/billy.jpg",
+        // },
+        // {
+        //     id: 3,
+        //     description: "Камень поменьше",
+        //     img: "@/assets/falling.jpg",
+        // },
+        // {
+        //     id: 4,
+        //     description: "Камень4 - ПОТЯЖЕЛЕЕ",
+        //     img: "@/assets/franz.jpg",
+        // },
+        // {
+        //     id: 5,
+        //     description: "Камень5 - обычный такой - пацанский камень",
+        //     img: "@/assets/isaac.png",
+        // },
+        // {
+        //     id: 6,
+        //     description: "Камень6 - мокрый камень",
+        //     img: "@/assets/Ray.jpg",
+        // },
+        // {
+        //     id: 7,
+        //     description: "Камень7",
+        //     img: "@/assets/stone-header.jpg",
+        // },
+      ],
+      originalCards: [],
+      searchText: "",
+    };
+  },
+  methods: {
+    searchIt() {
+      if (this.searchText === "") {
+        this.cardsToShow = this.originalCards.slice();
+      } else {
+        const find = this.searchText.toLowerCase();
+        this.cardsToShow = this.originalCards.filter(
+          (it) => it.description.toLowerCase().indexOf(find) !== -1
+        );
+      }
     },
-    mounted() {
-        this.axios.get('http://localhost:5001/api/stone')
-            .then(response => this.cards = response.data.rows)
-            .catch(error => console.log(error)); 
-    },
-    components: {MainHeader, MainFooter, StoneCard },
+  },
+  mounted() {
+    this.axios
+      .get("http://localhost:5001/api/stone")
+      .then((response) => {
+        this.originalCards = response.data.rows;
+        this.cardsToShow = this.originalCards.slice();
+      })
+      .catch((error) => console.log(error));
+  },
+  components: { MainHeader, MainFooter, StoneCard },
 };
 </script>
 
 <template>
   <MainHeader />
-    <main>
-      <div class="signIn d-flex justify-content-end">
-        <button class="btn btn-primary m-1">Логин</button>
+  <main>
+    <div class="signIn d-flex justify-content-end">
+      <RouterLink
+        class="btn btn-primary m-1"
+        to="/admin"
+        v-if="sessionStorage.token"
+        >Админ-панель
+      </RouterLink>
+      <RouterLink class="btn btn-primary m-1" to="/login" v-else>
+        Логин
+      </RouterLink>
+    </div>
+    <div class="search">
+      <form class="search__form" @submit.prevent="searchIt">
+        <input type="text" placeholder="Искать здесь..." v-model="searchText" />
+        <button class="search_button" type="submit"></button>
+      </form>
+    </div>
+    <div class="container">
+      <div class="main__cardZone">
+        <StoneCard v-for="card in cardsToShow" :card="card" :key="card.id" />
       </div>
-        <div class="search">
-            <form class="search__form">
-                <input type="text" placeholder="Искать здесь..." />
-                <button class="search_button" type="submit"></button>
-            </form>
-        </div>
-      <div class="container">
-        <div class="main__cardZone">
-          <StoneCard
-              v-for="card in cards"
-              :card="card"
-              :key="card.id"
-          />
-        </div>
-      </div>
-
-    </main>
+    </div>
+  </main>
   <MainFooter />
 </template>
 
 <style lang="scss">
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
   background-color: rgba(0, 0, 0, 0.05);
@@ -94,7 +117,6 @@ body, html {
   flex-wrap: wrap;
   justify-content: flex-start;
   //grid-template-columns: repeat(4, 1fr);
-
 }
 .search {
   position: relative;

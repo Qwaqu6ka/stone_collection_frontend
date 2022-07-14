@@ -59,12 +59,12 @@
         </div>
       </div>
     </section>
-    <div class="footer__down text-center p-4">
+    <!-- <div class="footer__down text-center p-4">
       © 2021 Copyright:
       <a class="text-reset fw-bold" href="https://mdbootstrap.com/"
         >MDBootstrap.com</a
       >
-    </div>
+    </div> -->
   </footer>
 </template>
 
