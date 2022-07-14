@@ -1,71 +1,97 @@
 <script>
 import StoneCard from "@/components/StoneCard.vue";
+import { RouterLink, RouterView } from "vue-router";
+import MainHeader from "../components/MainHeader.vue";
+import MainFooter from "../components/MainFooter.vue";
 export default {
-  data() {
-    return {
-      cards: [
-        { id: 1, description: "Камень1", img: "../assets/stone-example.jpg" },
-        {
-          id: 2,
-          description: "Очень длинный камень - Камень2",
-          img: "@/assets/billy.jpg",
-        },
-        {
-          id: 3,
-          description: "Камень поменьше",
-          img: "@/assets/falling.jpg",
-        },
-        {
-          id: 4,
-          description: "Камень4 - ПОТЯЖЕЛЕЕ",
-          img: "@/assets/franz.jpg",
-        },
-        {
-          id: 5,
-          description: "Камень5 - обычный такой - пацанский камень",
-          img: "@/assets/isaac.png",
-        },
-        {
-          id: 6,
-          description: "Камень6 - мокрый камень",
-          img: "@/assets/Ray.jpg",
-        },
-        {
-          id: 7,
-          description: "Камень7",
-          img: "@/assets/stone-header.jpg",
-        },
-      ],
-    };
-  },
-  // mounted() {
-  //     this.axios.get('http://localhost:5001/api/stone')
-  //         .then(response => this.cards = response.data.rows)
-  //         .catch(error => console.log(error));
-  // },
-  components: { StoneCard },
+    data() {
+        return {
+            cards: [
+                { id: 1, description: "Камень1", img: "../assets/stone-example.jpg" },
+                {
+                    id: 2,
+                    description: "Очень длинный камень - Камень2",
+                    img: "@/assets/billy.jpg",
+                },
+                {
+                    id: 3,
+                    description: "Камень поменьше",
+                    img: "@/assets/falling.jpg",
+                },
+                {
+                    id: 4,
+                    description: "Камень4 - ПОТЯЖЕЛЕЕ",
+                    img: "@/assets/franz.jpg",
+                },
+                {
+                    id: 5,
+                    description: "Камень5 - обычный такой - пацанский камень",
+                    img: "@/assets/isaac.png",
+                },
+                {
+                    id: 6,
+                    description: "Камень6 - мокрый камень",
+                    img: "@/assets/Ray.jpg",
+                },
+                {
+                    id: 7,
+                    description: "Камень7",
+                    img: "@/assets/stone-header.jpg",
+                },
+            ],
+        };
+    },
+    // mounted() {
+    //     this.axios.get('http://localhost:5001/api/stone')
+    //         .then(response => this.cards = response.data.rows)
+    //         .catch(error => console.log(error)); 
+    // },
+    components: {MainHeader, MainFooter, StoneCard },
 };
 </script>
 
 <template>
-  <main>
-    <div class="search">
-      <form class="search__form">
-        <input type="text" placeholder="Искать здесь..." />
-        <button class="search_button" type="submit"></button>
-      </form>
-    </div>
-    <div class="Grid">
-      <StoneCard v-for="card in cards" :card="card" :key="card.id" />
-    </div>
-  </main>
+  <MainHeader />
+    <main>
+        <div class="search">
+            <form class="search__form">
+                <input type="text" placeholder="Искать здесь..." />
+                <button class="search_button" type="submit"></button>
+            </form>
+        </div>
+      <div class="container">
+        <div class="main__cardZone">
+          <StoneCard
+              v-for="card in cards"
+              :card="card"
+              :key="card.id"
+          />
+        </div>
+      </div>
+
+    </main>
+  <MainFooter />
 </template>
 
 <style lang="scss">
-.Grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  justify-items: center;
+body, html {
+  margin: 0;
+  padding: 0;
+  background-color: rgba(0, 0, 0, 0.05);
+  min-height: 100%;
+}
+
+.main {
+  min-height: 100%;
+}
+
+.main__cardZone {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  //grid-template-columns: repeat(4, 1fr);
+
 }
 .search {
   position: relative;

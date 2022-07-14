@@ -40,60 +40,53 @@
         </div>
       </div>
 
-      <h3 class="title__table">Список минералов</h3>
-      <div class="button__add d-flex flex-row justify-content-end">
-        <button class="btn btn-primary addStone" @click="addStone">Добавить минерал</button>
-      </div>
+        <h3 class="title__table">
+            Список минералов
+        </h3>
+        <div class="button__add d-flex flex-row justify-content-end" >
+            <button class="btn btn-primary addStone" @click="addStone">
+                Добавить минерал
+            </button>
+        </div>
 
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col">id</th>
-            <th scope="col">Название</th>
-            <th scope="col">Описание</th>
-            <th scope="col">Местонахождения</th>
-            <th scope="col">Автор</th>
-            <th scope="col">Действия</th>
-            <th scope="col">Создано</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Камень 1</td>
-            <td class="td-description">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Deleniti, et, libero. Accusantium architecto atque culpa esse eum
-              exercitationem ipsam nihil quasi, tempora tenetur totam, vel?
-            </td>
-            <td>Приморье</td>
-            <td>Иванов Иван</td>
-            <td class="td__buttons">
-              <a href="">Удалить</a>
-              <a href="">Изменить</a>
-              <a href="">Смотреть</a>
-            </td>
-            <td>03.04.2022</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Камень 2</td>
-            <td class="td-description">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Deleniti, et, libero. Accusantium architecto atque culpa esse eum
-              exercitationem ipsam nihil quasi, tempora tenetur totam, vel?
-            </td>
-            <td>Приморье</td>
-            <td>Иванов Иван</td>
-            <td class="td__buttons">
-              <a href="">Удалить</a>
-              <a href="">Изменить</a>
-              <a href="">Смотреть</a>
-            </td>
-            <td>03.04.2022</td>
-          </tr>
-        </tbody>
-      </table>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">Название</th>
+                <th scope="col">Описание</th>
+                <th scope="col">Местонахождения</th>
+                <th scope="col">Автор</th>
+                <th scope="col">Действия</th>
+                <th scope="col">Создано</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Камень 1</td>
+                <td class="td-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, et, libero. Accusantium architecto atque culpa esse eum exercitationem ipsam nihil quasi, tempora tenetur totam, vel?</td>
+                <td>Приморье</td>
+                <td>Иванов Иван</td>
+                <td class="td__buttons">
+                    <a href="">Удалить</a>
+                </td>
+                <td>03.04.2022</td>
+
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Камень 2</td>
+                <td class="td-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, et, libero. Accusantium architecto atque culpa esse eum exercitationem ipsam nihil quasi, tempora tenetur totam, vel?</td>
+                <td>Приморье</td>
+                <td>Иванов Иван</td>
+                <td class="td__buttons">
+                    <a href="">Удалить</a>
+                </td>
+                <td>03.04.2022</td>
+            </tr>
+            </tbody>
+        </table>
     </div>
   </div>
 </template>

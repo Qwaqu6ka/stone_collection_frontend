@@ -1,91 +1,66 @@
+
+
 <template>
   <div class="main" style="background-color: rgba(0, 0, 0, 0.05)">
     <div class="container">
-      <div class="row addStone">
-        <div class="col-md-offset-3 col-md-6">
-          <form class="form-horizontal" @submit.prevent="onSubmit">
-            <span class="heading">Добавление минерала</span>
-            <div class="form-group">
-              <textarea
-                type="text"
-                class="form-control"
-                id="description"
-                placeholder="Содержание коллекции"
-                style="height: 100px"
-                v-model="name"
-                required
-              ></textarea>
+          <div class="addStone">
+            <div class="col-md-offset-3 col-md-6">
+              <form class="form-horizontal" @submit.prevent="onSubmit">
+                <span class="heading">Добавление минерала</span>
+                <div class="form-group">
+                  <textarea type="text" class="form-control" required id="description" v-model="name" placeholder="Описание коллекции" style="height: 100px"></textarea>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" id="location" required placeholder="Место нахождения" v-model="city">
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" id="author" required placeholder="Автор" v-model="author">
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" id="store" required placeholder="Место хранения" v-model="store">
+                </div>
+                <div class="form-group">
+                  <input type="file" name="photo" id="photo" multiple accept="image/*,image/jpeg">
+                </div>
+                <div class="form-group d-flex justify-content-center">
+                  <button type="submit" class="btn btn-primary">Добавить</button>
+                </div>
+              </form>
             </div>
-            <div class="form-group">
-              <input
-                type="text"
-                class="form-control"
-                id="location"
-                required
-                placeholder="Место нахождения"
-                v-model="city"
-              />
-            </div>
-            <div class="form-group">
-              <input
-                type="text"
-                class="form-control"
-                id="location"
-                required
-                placeholder="Место хранения"
-                v-model="store"
-              />
-            </div>
-            <div class="form-group">
-              <input
-                type="text"
-                class="form-control"
-                id="author"
-                required
-                placeholder="Автор"
-                v-model="author"
-              />
-            </div>
-            <div class="form-group">
-              <input
-                id="photo"
-                type="file"
-                name="photo"
-                required
-                accept="image/*,image/jpg"
-              />
-            </div>
-            <div class="form-group d-flex justify-content-center">
-              <button type="submit" class="btn btn-primary">Добавить</button>
-            </div>
-          </form>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  <MainFooter />
 </template>
 
 <style lang="scss">
 .addStone {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.row {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100vh;
-}
-.content {
-  min-height: calc(100vh - 0px);
-  display: flex;
-  flex-direction: row;
-  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .sidebar {
-  min-height: 100%;
+    min-height: 100%;
 }
 
-.main-content {
-  min-height: 100%;
-}
+//.main-content {
+//    min-height: 100%;
+//}
 
 .title__table {
   margin: 10px;
