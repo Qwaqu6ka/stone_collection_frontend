@@ -31,8 +31,8 @@ export default {
           Authorization: "bearer " + sessionStorage.token,
         },
       })
-        .then((response) => {
-            this.$emit('removeItem', this.card.id)
+        .then(() => {
+          this.$emit("removeItem", this.card.id);
         })
         .catch((error) => console.log(error));
     },

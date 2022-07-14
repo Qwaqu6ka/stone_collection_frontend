@@ -1,6 +1,5 @@
 <script>
 import StoneCard from "@/components/StoneCard.vue";
-import { RouterLink, RouterView } from "vue-router";
 import MainHeader from "../components/MainHeader.vue";
 import MainFooter from "../components/MainFooter.vue";
 export default {
@@ -61,6 +60,9 @@ export default {
       .get("http://localhost:5001/api/stone")
       .then((response) => {
         this.originalCards = response.data.rows;
+        this.originalCards.sort((a, b) =>
+          ("" + a.description).localeCompare(b.description)
+        );
         this.cardsToShow = this.originalCards.slice();
       })
       .catch((error) => console.log(error));

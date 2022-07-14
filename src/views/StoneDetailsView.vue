@@ -78,10 +78,9 @@ export default {
     this.axios
       .get("http://localhost:5001/api/stone/" + route.params.id)
       .then((response) => {
-        this.stone = response.data
+        this.stone = response.data;
       })
       .catch((error) => console.log(error));
-      
   },
 };
 </script>

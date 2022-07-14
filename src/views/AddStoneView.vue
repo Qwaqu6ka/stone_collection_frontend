@@ -141,7 +141,7 @@ export default {
             Authorization: "bearer " + sessionStorage.token,
           },
         })
-        .then((response) => {
+        .then(() => {
           router.push("/admin");
         })
         .catch((error) => console.log(error));

@@ -46,9 +46,17 @@
 
       <h3 class="title__table">Список минералов</h3>
       <div class="button__add d-flex flex-row justify-content-end">
-        <button class="btn btn-primary addStone" @click="addStone">
+        <span>Сортировка по: </span>
+        <select class="mx-3" v-model="sortRule" @change="sortChange">
+          <option value="date" selected>По дате добавления</option>
+          <option value="name">По названию</option>
+          <option value="city">По месту нахождения</option>
+          <option value="store">По месту хранения</option>
+          <option value="author">По автору</option>
+        </select>
+        <RouterLink to="/addStone" class="btn btn-primary addStone">
           Добавить минерал
-        </button>
+        </RouterLink>
       </div>
 
       <table class="table table-striped">
@@ -117,14 +125,10 @@ td {
 </style>
 
 <script>
-import router from "../router";
 import AdminListElem from "../components/AdminListElem.vue";
 
 export default {
   methods: {
-    addStone() {
-      router.push("/addStone");
-    },
     removeItem(id) {
       this.originalCards = this.originalCards.filter((it) => it.id !== id);
       this.cardsToShow = this.cardsToShow.filter((it) => it.id !== id);
@@ -140,6 +144,36 @@ export default {
             it.stone_place.toLowerCase().indexOf(find) !== -1 ||
             it.description.toLowerCase().indexOf(find) !== -1
         );
+        this.sortChange();
+      }
+    },
+    sortChange() {
+      switch (this.sortRule) {
+        case "date":
+          this.cardsToShow.sort((a, b) =>
+            ("" + b.createdAt).localeCompare(a.createdAt)
+          );
+          break;
+        case "city":
+          this.cardsToShow.sort((a, b) =>
+            ("" + a.stone_city).localeCompare(b.stone_city)
+          );
+          break;
+        case "store":
+          this.cardsToShow.sort((a, b) =>
+            ("" + a.stone_place).localeCompare(b.stone_place)
+          );
+          break;
+        case "author":
+          this.cardsToShow.sort((a, b) =>
+            ("" + a.stone_author).localeCompare(b.stone_author)
+          );
+          break;
+        case "name":
+          this.cardsToShow.sort((a, b) =>
+            ("" + a.description).localeCompare(b.description)
+          );
+          break;
       }
     },
   },
@@ -149,6 +183,7 @@ export default {
       originalCards: [],
       cardsToShow: [],
       searchText: "",
+      sortRule: "",
     };
   },
   mounted() {
