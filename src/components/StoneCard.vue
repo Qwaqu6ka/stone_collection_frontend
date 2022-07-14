@@ -16,7 +16,7 @@
 .card {
     margin: 10px;
     width: 18rem;
-    height: calc(100% + 30px);
+    height: 430px;
   //opacity: 0.8;
 }
 
@@ -26,12 +26,12 @@
 }
 
 .card-body {
-    height: 120px;
+    height: 100%;
 }
 
 .card-img-top {
   width: 100%;
-  height: calc(100% - 50%);
+  height: calc(100% - 20%);
   background-repeat: no-repeat;
   background-size: 100%;
   background-size: contain;

@@ -53,6 +53,9 @@ export default {
 <template>
   <MainHeader />
     <main>
+      <div class="signIn d-flex justify-content-end">
+        <button class="btn btn-primary m-1">Логин</button>
+      </div>
         <div class="search">
             <form class="search__form">
                 <input type="text" placeholder="Искать здесь..." />
