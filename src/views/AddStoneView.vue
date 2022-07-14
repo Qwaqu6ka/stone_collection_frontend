@@ -52,6 +52,7 @@
                 name="photo"
                 id="photo"
                 multiple
+                required
                 accept="image/*,image/jpeg"
               />
             </div>
@@ -141,7 +142,6 @@ export default {
           },
         })
         .then((response) => {
-          console.log(response.data);
           router.push("/admin");
         })
         .catch((error) => console.log(error));

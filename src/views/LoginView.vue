@@ -8,6 +8,7 @@
             <div class="form-group">
               <input
                 type=""
+                required
                 class="form-control"
                 id="inputLogin"
                 placeholder="Логин"
@@ -17,6 +18,7 @@
             </div>
             <div class="form-group help">
               <input
+                required
                 type="password"
                 class="form-control"
                 id="inputPassword"

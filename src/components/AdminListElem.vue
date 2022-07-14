@@ -4,7 +4,7 @@
     <td>{{ card.stone_place }}</td>
     <td>{{ card.stone_author }}</td>
     <td class="td__buttons">
-      <a href="#" @click="onDelete">Удалить</a>
+      <a href="#" @click="removeItem">Удалить</a>
     </td>
     <td>{{ card.createdAt.slice(0, 10) }}</td>
   </tr>
@@ -19,7 +19,7 @@ export default {
     },
   },
   methods: {
-    onDelete() {
+    removeItem() {
       this.axios({
         method: "post",
         url: "http://localhost:5001/api/stone/remove",
@@ -31,7 +31,7 @@ export default {
         },
       })
         .then((response) => {
-          console.log("Крута " + response.data);
+            this.$emit('removeItem', this.card.id)
         })
         .catch((error) => console.log(error));
     },

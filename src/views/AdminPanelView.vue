@@ -66,7 +66,7 @@
             v-for="card in cardsToShow"
             :key="card.id"
             :card="card"
-            :removeItem="removeItem"
+            @removeItem="removeItem"
           />
         </tbody>
       </table>
@@ -125,7 +125,8 @@ export default {
       router.push("/addStone");
     },
     removeItem(id) {
-      this.card = this.cards.filter((it) => it.id !== id);
+      this.originalCards = this.originalCards.filter((it) => it.id !== id);
+      this.cardsToShow = this.cardsToShow.filter((it) => it.id !== id);
     },
     searchIt() {
       if (this.searchText === "") {
