@@ -10,7 +10,7 @@ import HeaderStoneDetails from "../components/HeaderStoneDetails.vue";
         <div class="stoneInfo__image">
             <img 
                 class="d-block stoneInfo__pic" 
-                src="../assets/falling.jpg" 
+                :src="'http://localhost:5001/' + stone.img"
                 alt="Камень"
             >
         </div>
@@ -20,11 +20,12 @@ import HeaderStoneDetails from "../components/HeaderStoneDetails.vue";
                     Описание:
                 </h6>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci asperiores, assumenda aut autem dignissimos dolore eum impedit magnam magni molestias necessitatibus nihil officia officiis quis similique, soluta vitae voluptates? Consequuntur cumque dolore earum eum quas tempora temporibus veritatis? A asperiores atque consequatur corporis ducimus ea error id labore nam quae quaerat quo repellat repudiandae sapiente, sint veniam voluptatibus? Ab aspernatur, delectus ea explicabo, facere id ipsa magni maiores maxime modi odio officia officiis quas ratione repellendus, reprehenderit tempore voluptas! Aperiam asperiores commodi consequuntur ex fuga, ipsam laboriosam minima modi, nam non possimus praesentium quis, ratione reprehenderit suscipit tempore voluptatum. Nihil?
+                    {{ stone.description }}
                 </p>
             </div>
             <div class="stoneInfo__location">
-                    <span class="title">Местонахождение:</span> Приморье, Лесозаводск
+                <span class="title">Место нахождения:</span>
+                <span></span>
             </div>
             <div class="stoneInfo__author">
                 <span class="title" >
@@ -82,9 +83,9 @@ export default {
   },
   mounted() {
     const route = useRoute();
-    // this.axios.get("http://localhost:5001/api/stone/" + route.params.id)
-    //     .then(response => this.stone = response.data)
-    //     .catch(error => console.log(error));
+    this.axios.get("http://localhost:5001/api/stone/" + route.params.id)
+        .then(response => this.stone = response.data)
+        .catch(error => console.log(error));
   },
 };
 </script>

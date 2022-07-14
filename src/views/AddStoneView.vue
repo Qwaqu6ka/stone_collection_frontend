@@ -1,5 +1,3 @@
-
-
 <template>
   <div class="main" style="background-color: rgba(0, 0, 0, 0.05)">
     <div class="container">
@@ -30,7 +28,6 @@
         </div>
       </div>
     </div>
-  <MainFooter />
 </template>
 
 <style lang="scss">
@@ -100,20 +97,25 @@ export default {
         formData.append("description", this.name)
         formData.append("city", this.city)
         formData.append("img", document.getElementById('photo').files[0])
-        this.axios({
-            method: "post",
-            url: "http://localhost:5001/api/stone/create2",
+        // this.axios({
+        //     method: "post",
+        //     url: "http://localhost:5001/api/stone/create2",
+        //     headers: {
+        //         'Authorization': "bearer " + sessionStorage.token,
+        //         // 'Content-Type': `multipart/form-data; boundary=${formData._boundary}`,
+        //     },
+        //     data: {
+        //         // place: this.store,
+        //         // author: this.author,
+        //         // descritpion: this.name,
+        //         // city: this.city,
+        //         // img: formData,
+        //         formData
+        //     }
+        // })
+        this.axios.post("http://localhost:5001/api/stone/create2", formData, {
             headers: {
-                'Authorization': "bearer " + sessionStorage.token,
-                // 'Content-Type': `multipart/form-data; boundary=${formData._boundary}`,
-            },
-            data: {
-                // place: this.store,
-                // author: this.author,
-                // descritpion: this.name,
-                // city: this.city,
-                // img: formData,
-                formData
+                'Authorization': "bearer " + sessionStorage.token
             }
         })
         .then((response) => {
