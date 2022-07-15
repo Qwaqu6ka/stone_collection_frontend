@@ -1,5 +1,5 @@
 <template>
-  <tr>
+  <tr @click="pushToId">
     <td class="td-description">{{ card.description }}</td>
     <td>{{ card.stone_city }}</td>
     <td>{{ card.stone_author }}</td>
@@ -12,6 +12,8 @@
 </template>
 
 <script>
+import router from '../router';
+
 export default {
   props: {
     card: {
@@ -20,6 +22,9 @@ export default {
     },
   },
   methods: {
+    pushToId() {
+        router.push("/stone/" + this.card.id);
+    },
     removeItem() {
       this.axios({
         method: "post",
