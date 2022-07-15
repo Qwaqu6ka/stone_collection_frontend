@@ -32,11 +32,18 @@ import HeaderStoneDetails from "../components/HeaderStoneDetails.vue";
 </template>
 
 <style>
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: rgba(0, 0, 0, 0.05);
+  min-height: 100%;
+}
 .stoneInfo {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   width: 100%;
+  height: calc(100vh - 77px);
 }
 
 .stoneInfo__pic {
