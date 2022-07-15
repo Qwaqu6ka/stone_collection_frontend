@@ -6,13 +6,11 @@ import HeaderStoneDetails from "../components/HeaderStoneDetails.vue";
 <template>
   <HeaderStoneDetails />
   <div class="stoneInfo">
-    <div class="stoneInfo__image">
-      <img
+    <img
         class="d-block stoneInfo__pic"
         :src="'http://localhost:5001/' + stone.img"
         alt="Камень"
-      />
-    </div>
+    />
     <div class="stoneInfo__info">
       <div class="stoneInfo__description">
         <h6 class="title">Описание:</h6>
@@ -41,15 +39,20 @@ html, body {
 .stoneInfo {
   display: flex;
   flex-direction: row;
+  align-items: flex-start;
   justify-content: space-around;
   width: 100%;
   height: calc(100vh - 77px);
 }
 
 .stoneInfo__pic {
+    max-height: 90%;
   margin: 20px;
-  width: calc(100%);
-  height: 60vh;
+  width: 40%;
+  
+  object-fit: scale-down;
+  /* width: calc(100%);
+  height: 60vh; */
 }
 
 .stoneInfo__info {

@@ -1,5 +1,5 @@
 <template>
-  <tr @click="pushToId">
+  <tr>
     <td class="td-description">{{ card.description }}</td>
     <td>{{ card.stone_city }}</td>
     <td>{{ card.stone_author }}</td>

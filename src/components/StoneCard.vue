@@ -29,8 +29,10 @@
 }
 
 .card-img-top {
-  width: 100%;
-  height: calc(100% - 20%);
+//   width: 100%;
+//   height: calc(100% - 20%);
+    min-height: 60%;
+    object-fit: cover;
   background-repeat: no-repeat;
   background-size: 100%;
   background-size: contain;
