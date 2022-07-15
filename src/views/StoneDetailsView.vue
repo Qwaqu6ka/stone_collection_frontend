@@ -7,9 +7,9 @@ import HeaderStoneDetails from "../components/HeaderStoneDetails.vue";
   <HeaderStoneDetails />
   <div class="stoneInfo">
     <img
-        class="d-block stoneInfo__pic"
-        :src="'http://localhost:5001/' + stone.img"
-        alt="Камень"
+      class="d-block stoneInfo__pic"
+      :src="'http://localhost:5001/' + stone.img"
+      alt="Камень"
     />
     <div class="stoneInfo__info">
       <div class="stoneInfo__description">
@@ -30,7 +30,8 @@ import HeaderStoneDetails from "../components/HeaderStoneDetails.vue";
 </template>
 
 <style>
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   background-color: rgba(0, 0, 0, 0.05);
@@ -46,10 +47,10 @@ html, body {
 }
 
 .stoneInfo__pic {
-    max-height: 90%;
+  max-height: 90%;
   margin: 20px;
   width: 40%;
-  
+
   object-fit: scale-down;
   /* width: calc(100%);
   height: 60vh; */

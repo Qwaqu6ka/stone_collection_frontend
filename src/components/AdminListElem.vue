@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import router from '../router';
+import router from "../router";
 
 export default {
   props: {
@@ -23,7 +23,7 @@ export default {
   },
   methods: {
     pushToId() {
-        router.push("/stone/" + this.card.id);
+      router.push("/stone/" + this.card.id);
     },
     removeItem() {
       this.axios({
