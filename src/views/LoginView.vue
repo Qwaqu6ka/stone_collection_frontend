@@ -1,7 +1,7 @@
 <template>
   <div class="main content" style="background-color: rgba(0, 0, 0, 0.05)">
     <div class="container">
-      <div class="row">
+      <div class="row" style="align-items: center;">
         <div class="col-md-offset-3 col-md-6">
           <form class="form-horizontal" @submit.prevent="onSubmit">
             <span class="heading">Логин</span>
@@ -48,7 +48,7 @@
 }
 
 .row {
-  margin-top: 15%;
+  margin-top: 5%;
   display: flex;
   flex-direction: row;
   justify-content: center;
