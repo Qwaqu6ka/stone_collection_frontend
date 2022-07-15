@@ -111,6 +111,7 @@ html {
 
 .main {
   min-height: 100%;
+  background: none;
 }
 
 .main__cardZone {
